@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.vehicle.VehicleFragment"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/to_broadcast"
+        android:textColor="@color/purple_200"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:autofillHints="data"
+        android:layout_margin="8dp"
+        android:hint="@string/hint_name"
+        android:inputType="none"
+        android:textColor="@color/black"
+        android:textColorHint="@color/text_light_gray"
+        tools:ignore="TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/edit_data"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:autofillHints="data"
+        android:layout_margin="8dp"
+        android:hint="@string/hint"
+        android:inputType="none"
+        android:textColor="@color/black"
+        android:textColorHint="@color/text_light_gray"
+        tools:ignore="TextContrastCheck" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/start_adv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:text="@string/start_adv"
+            android:textColor="@color/dark_blue"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/stop_adv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/bg_week"
+            android:text="@string/stop_adv"
+            android:textColor="@color/dark_blue"
+            style="?android:attr/buttonBarButtonStyle" />
+
+
+        <Button
+            android:id="@+id/send_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/bg_week"
+            android:text="@string/send_to_car"
+            android:textColor="@color/dark_blue"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/tx_to_app"
+        android:textColor="@color/purple_200"
+        android:textSize="16sp" />
+    <EditText
+        android:id="@+id/tx_to_phone"
+        android:inputType="none"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/light_gray"
+        android:autofillHints = "data"
+        android:textSize="12sp"
+        tools:ignore="TextFields" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:text="@string/log"
+            android:textColor="@color/purple_200"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/rx_data_type"
+            android:layout_width="286dp"
+            android:layout_height="48dp"
+            android:inputType="none"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/data_log"
+        android:inputType="none"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="230dp"
+        android:scrollbars="vertical"
+        android:background="@color/light_gray"
+        android:textSize="12sp"/>
+
+
+</LinearLayout>
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout> -->

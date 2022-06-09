@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="half_theme_green">#5053d555</color>
+    <color name="theme_green">#53d555</color>
+    <color name="hard_green">#00b640</color>
+    <color name="white_half">#88FFFFFF</color>
+    <color name="yellow">#ffff00</color>
+    <color name="gray_email">#efefef</color>
+    <color name="light_gray">#cccccc</color>
+    <color name="edit_bg_gray">#b1b1b1</color>
+    <color name="theme_white">#f8f8f8</color>
+    <color name="dark_gray">#555555</color>
+    <color name="bg_date">#eff0fa</color>
+    <color name="red_menstrual">#ff98b0</color>
+
+    <!-- 蓝色 -->
+    <color name="blue">#12b6f5</color>
+    <color name="measure_blue">#00838F</color>
+    <color name="light_blue">#e4f5e9</color>
+    <color name="dark_blue">#1565C0</color>
+
+
+    <color name="measure_white">#f8f8f8</color>
+
+    <!-- 粉红 -->
+    <color name="pink">#ffeaeb</color>
+    <color name="green_light">#b5d95e</color>
+    <color name="pink_hard">#bd4e4e</color>
+    <!-- 紫色 -->
+    <color name="purple">#ea79fb</color>
+    <color name="text_light_gray">#999999</color>
+    <color name="text_lighter_gray">#bbbbbb</color>
+    <color name="num_light_gray">#666666</color>
+    <color name="text_dark_red">#ff4c4c</color>
+    <color name="half_transparent">#80000000</color>
+    <color name="half_white">#b8FFFFFF</color>
+    <color name="bg_check_result">#def4e9</color>
+    <color name="bg_week">#e4f7e3</color>
+    <color name="navi_color">#ffffff</color>
+    <color name="dialog_btn_bg">#eaeaea</color>
+    <color name="card_bg_unactived">#eaeaea</color>
+    <color name="card_bg_actived">#dfeffb</color>
+    <color name="switch_on">#2ea2f5</color>
+
+</resources>

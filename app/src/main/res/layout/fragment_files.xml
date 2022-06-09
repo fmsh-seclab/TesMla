@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.vehicle.VehicleFragment"
+    android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:id = "@+id/dev_addr"
+            android:layout_marginStart="8dp"
+            android:layout_weight="0.2"
+            android:text = "@string/mac"
+            android:layout_height="48dp"
+            android:textColor="@color/purple_200"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:id = "@+id/addr"
+            android:layout_weight="0.5"
+            android:layout_height="48dp"
+            android:textColor="@color/dark_blue"
+            android:textSize="16sp"/>
+        <Button
+            android:id="@+id/connect"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="10dp"
+            android:inputType="none"
+            android:text="@string/connect"
+            android:textColor="@color/white_half"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/change_mtu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_weight="1"
+            android:text="@string/change_mtu_size"
+            android:textColor="@color/dark_blue"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/disconnect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/bg_week"
+            android:text="@string/disconnect"
+            android:textColor="@color/dark_blue"
+            style="?android:attr/buttonBarButtonStyle" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="@string/tx_to_car"
+        android:textColor="@color/purple_200"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/tx_to_car"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:autofillHints="data"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/light_gray"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        tools:ignore="LabelFor,SpeakableTextPresentCheck"
+        android:inputType="text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+    <Button
+        android:id="@+id/get_pk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/bg_week"
+        android:text="@string/get_pk"
+        android:textColor="@color/dark_blue"
+        style="?android:attr/buttonBarButtonStyle" />
+
+    <Button
+        android:id="@+id/send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_weight="1"
+        android:text="@string/send_to_car"
+        android:textColor="@color/dark_blue"
+        style="?android:attr/buttonBarButtonStyle" />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:text="@string/log"
+        android:textColor="@color/purple_200"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/log"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="280dp"
+        android:autofillHints="data"
+        android:background="@color/light_gray"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+
+</LinearLayout>

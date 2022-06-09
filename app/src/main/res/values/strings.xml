@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">TesMla</string>
+    <string name="title_vehicle">Fake as Tesla</string>
+    <string name="title_phone">Scan</string>
+    <string name="title_files">Fake as App</string>
+
+    <string name = "unknown_op">unknown operation</string>
+    <string name = "write_chara">"ATT_WRITE_REQ for characteristic"</string>
+    <string name = "write_dsp">"ATT_WRITE_REQ for descriptor"</string>
+    <string name = "default_data">"Using default data: %s"</string>
+    <string name = "edit_Data">"Using Input Name: %s"</string>
+    <string name = "to_broadcast">要广播的数据：</string>
+    <string name = "hint">输入16进制字符串（0~9，A~F）</string>
+    <string name = "hint_name">输入广播设备名</string>
+
+    <string name = "hint_mac">选择或输入(分号隔开)</string>
+    <string name = "start_adv">伪造广播</string>
+    <string name = "stop_adv">停止广播</string>
+    <string name = "send">回复</string>
+
+    <string name = "start_scan">开始扫描</string>
+    <string name = "stop_scan">停止扫描</string>
+
+    <string name = "mac">连接的设备：</string>
+    <string name = "tx_to_car">发送给车的数据：</string>
+    <string name = "tx_to_app">发送给app的数据:</string>
+    <string name = "connect">连接</string>
+    <string name = "get_pk">获取公钥</string>
+    <string name = "send_to_car">发送数据</string>
+    <string name = "disconnect">断开连接</string>
+    <string name = "load">加载文件</string>
+    <string name = "load_file">文件名：</string>
+    <string name = "change_mtu_size">更改MTU</string>
+
+    <string name = "connected">已连接</string>
+    <string name = "dir">/data/data/com.example.tesmla/files/%s</string>
+
+    <string name = "log">数据记录</string>
+    <string name = "change_mac">修改mac</string>
+    <string name = "mac_addr">MAC:</string>
+</resources>

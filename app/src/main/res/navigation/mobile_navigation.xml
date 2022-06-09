@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_vehicle">
+
+    <fragment
+        android:id="@+id/navigation_vehicle"
+        android:name="com.example.tesmla.ui.vehicle.VehicleFragment"
+        android:label="@string/title_vehicle"
+        tools:layout="@layout/fragment_vehicle" />
+
+    <fragment
+        android:id="@+id/navigation_phone"
+        android:name="com.example.tesmla.ui.phone.PhoneFragment"
+        android:label="@string/title_phone"
+        tools:layout="@layout/fragment_phone" />
+
+    <fragment
+        android:id="@+id/navigation_files"
+        android:name="com.example.tesmla.ui.files.FilesFragment"
+        android:label="@string/title_files"
+        tools:layout="@layout/fragment_files" />
+</navigation>

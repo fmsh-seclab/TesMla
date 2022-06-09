@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Project/TesMla/app/src/main/res/layout/fragment_files.xml" value="0.13072916666666667" />
+        <entry key="..\:/Project/TesMla/app/src/main/res/layout/fragment_phone.xml" value="0.13072916666666667" />
+        <entry key="..\:/Projects/Bluetooth/Google/TesMla/app/src/main/res/layout/activity_main.xml" value="0.18478260869565216" />
+        <entry key="..\:/Projects/Bluetooth/Google/TesMla/app/src/main/res/layout/fragment_files.xml" value="0.1" />
+        <entry key="..\:/Projects/Bluetooth/Google/TesMla/app/src/main/res/layout/fragment_phone.xml" value="0.1911231884057971" />
+        <entry key="..\:/Projects/Bluetooth/Google/TesMla/app/src/main/res/layout/fragment_vehicle.xml" value="0.1911231884057971" />
+        <entry key="..\:/Projects/Bluetooth/Google/TesMla/app/src/main/res/layout/listview_item.xml" value="0.1911231884057971" />
+        <entry key="..\:/Projects/Bluetooth/Google/TesMla/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22916666666666666" />
+        <entry key="..\:/TesMla/app/src/main/res/layout/activity_main.xml" value="0.2441123188405797" />
+        <entry key="..\:/TesMla/app/src/main/res/layout/fragment_files.xml" value="0.209375" />
+        <entry key="..\:/TesMla/app/src/main/res/layout/fragment_phone.xml" value="0.20677083333333332" />
+        <entry key="..\:/TesMla/app/src/main/res/layout/fragment_vehicle.xml" value="0.209375" />
+        <entry key="..\:/TesMla/app/src/main/res/layout/listview_item.xml" value="0.20677083333333332" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.phone.PhoneFragment"
+    android:background="@color/white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight="0.1"
+            android:layout_marginStart="8dp"
+            android:text = "@string/mac_addr"
+            android:layout_height="48dp"
+            android:textColor="@color/purple_200"
+            android:textSize="16sp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:id = "@+id/mac_to_be"
+            android:layout_weight="0.6"
+            android:inputType="none"
+            android:textColorHint="@color/text_light_gray"
+            android:layout_height="48dp"
+            android:textColor="@color/dark_blue"
+            android:textSize="16sp"
+            android:autofillHints="@string/hint_mac"
+            tools:ignore="LabelFor" />
+        <Button
+            android:id="@+id/change_mac"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="10dp"
+            android:inputType="none"
+            android:text="@string/change_mac"
+            android:textColor="@color/white_half"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <Button
+        android:id="@+id/start_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight= "1"
+        android:text="@string/start_scan"
+        style="?android:attr/buttonBarButtonStyle" />
+    <Button
+        android:id="@+id/stop_scan"
+        android:layout_weight= "1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stop_scan"
+        style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+    <ListView
+        android:id="@+id/lv_scan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
