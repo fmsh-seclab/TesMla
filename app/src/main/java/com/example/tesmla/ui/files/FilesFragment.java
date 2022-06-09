@@ -50,6 +50,7 @@ import java.util.UUID;
  *           2. Work as a BLE Client sending the similar command as Tesla App
  *           3. Communicate with connected device and show the data
  */
+
 public class FilesFragment extends Fragment {
 
     private BluetoothGatt mBluetoothGatt;
