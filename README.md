@@ -4,13 +4,22 @@ TesMla
 
 Introduction
 -------
-This app implements a **man in the middle attack** to Tesla Model 3.
+This app implements a **man in the middle attack** to Tesla Model 3 and its phone keys.
 
 Requirements
 -----
 All for Android. We test this app on a customized Google Pixel 5A Android Device.  
 - Following the instructions on Google android source websites, downloaded the android source code, and modified the definition `BLE_LOCAL_PRIVACY_ENABLED` from True to False, disabled random Bluetooth Devices Address (BD_ADDR) features during Bluetooth advertising. 
 - Based on the reverse engineering of Pixel 5A’s vendor firmware, we found the best way is to set the `ro.vendor.bt.boot.macaddr` property through an ADB shell command.
+
+Directory
+-------
+
+|Name|Descriptions|
+|---|---|
+|**documentations** |Tesla model 3 authentication protocols and vulnerabilities analysis. |
+|**images** |       Image files  |
+|**other**  |      Source codes in Android Studio  |
 
 **Note:** This repo is currently a bit preliminary, we will update related weblink and documentation latter.
 
@@ -35,7 +44,7 @@ Bootom navigation bars display three destinations at the bottom of a sceen: Fake
 - Connect: Connect to device with specific MAC address
 - Change MTU Size: Change MTU size to 256 bytes
 - BLE Client: Send write request to server. Parse indication from server. It will record and response automatically.  
-- 
+
 ![](https://github.com/fmsh-seclab/TesMla/blob/master/images/s1.JPG)  
 
 ### Operation Procedure
