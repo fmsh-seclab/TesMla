@@ -6,30 +6,63 @@ Introduction
 -------
 This app implements a **man in the middle attack** to Tesla Model 3 and its phone keys.
 
+Background
+----------
+Tesla enables car owners to use their smart phones to automatic unlock and active their cars. TesMla exploits vulnerabilities of authentication process when phone key is approaching to the vehicle. We reestabllished authentication protocols by sniffing and reverse engineering. The following parts gives a breif review of results.  
+
+### Test environments
+
+|Devices|Model|Version|
+|-------|--------|-----|
+|Owner device|Motorola Edge S|Android 11|
+|Attack device| Google Pixel 5A| Customized Android 11|
+|Vehicle|Tesla Model 3|V11
+|App|Tesla app|V4.2.3|
+
+### Authentication protocls
+If a phone key has been paired, it has the public key and BLE MAC address of Model 3. Similarly, Model 3 has the public key of phone key. A paired phone key is authenticated by Model 3 through BLE channel with proximity to the vehicle. This process is analyzed using BLE HCI log and reverse-engineering of Tesla App. We provide a comprehensive protocol of authentication as follow.
+
+![](https://github.com/fmsh-seclab/TesMla/blob/master/images/a(2).jpg)
+
+When a phone key is approaching , it sends request of connection to specific MAC address. The reconnection establishes.
+Model 3 sends authentication indications to phone. The indication inits the authentication process (Steps 7-15).  
+The phone generates shared secret **S** using local private key **p** and public key of vehicle **V** by ECDH. Then it encrypts data a with **S** as key and counter **count** as IV in AES-GCM mode. Phone delivers encryption results to Model 3. The result as first attestation consists of ciphertext(2bytes), tag(16bytes) and count to Model 3.  
+Model 3 derives secret S according to local private key **v** and public key of phone key using ECDH. Once receiving the first attestation, Model 3 decrypt and verify data based on **S**. It responds token G (20bytes) when verification successes.  
+Phone key increments counter by one. Once receiving token, phone key encrypts data **b** with **S** as key, new counter as IV and token **G** as additional authentication data in AES-GCM mode. Afterwards phone key sends results as second attestation to vehicle.  
+Model 3  verify the second attestation. If it passes, Model 3 unlocks the door and authentication process finishes.
+
+
+### Vulnerabilities
+
+- The reconnection between vehicle and Phone Key depends only on BLE MAC address of vehicle. A Tesla Model 3 broadcasts using its public MAC address which is always static. The Phone Key will not distinguish the vehicle from other malicious devices with same BLE MAC address, because reconnection does not check other information.  
+- BLE communications are all in plaintext. It offers adversarys opportunities to sniff. 
+- The value of 20 bytes token G stays fixed for hours. The connection status will not lead to token update. The token may remain the same no matter Phone key and Model 3 have connected and disconnected multiple times. 
+
+BLE channel only complete communications without any verification. The up-level cryptography ensures the security. This kind of authentication method is suspectable to relay attack.  
+By exploiting these weaknesses, we introduce a **man in the middle** attack. Attacker as an intermediation between Model 3 and Phone Key keeps recording and forwarding messages. Phone key treats attacker as paired vehicle and Model 3 seems attacker as a valid phone key. As a result, Model 3 is fooled to believe that it has connected to a registered key. It will unlock the door and start.
+
+
+### Proof of concept
+Relay attack ideally need two devices connecting to Model 3 and Phone Key seperately. Between these two attack devices, there exists another low-latency and long-distance communication, like SMS/network etc.. To prove feasibility of attack, we consider to use just one attack device. It requires adversary to connect to Phone Key and vehicle alternatively. 
+
+**TesMla** is a proof of concept. This app implements functions as the Phone Key using `BluetoothGatt` and the Tesla Model 3 using `BluetoothGattServer`. The attack device installed TesMla can complete a man in the middle attack shown in Figure below. TesMla records messages necessarily and forwards to peer device.
+
+![](https://github.com/fmsh-seclab/TesMla/blob/master/images/m.jpg)  
+**Note:** For detailed information, please goto https://www.anquanke.com/contribute/new.
+
 Requirements
 -----
 All for Android. We test this app on a customized Google Pixel 5A Android Device.  
-- Following the instructions on Google android source websites, downloaded the android source code, and modified the definition `BLE_LOCAL_PRIVACY_ENABLED` from True to False, disabled random Bluetooth Devices Address (BD_ADDR) features during Bluetooth advertising. 
+- Following the instructions on Google android source websites, users need download the android source code, and modify the definition `BLE_LOCAL_PRIVACY_ENABLED` from True to False, disable random Bluetooth Devices Address (BD_ADDR) features during Bluetooth advertising. 
 - Based on the reverse engineering of Pixel 5A’s vendor firmware, we found the best way is to set the `ro.vendor.bt.boot.macaddr` property through an ADB shell command.
-
-Directory
--------
-
-|Name|Descriptions|
-|---|---|
-|**documentations** |Tesla model 3 authentication protocols and vulnerabilities analysis. |
-|**images** |       Image files  |
-|**other**  |      Source codes in Android Studio  |
-
-**Note:** This repo is currently a bit preliminary, we will update related weblink and documentation latter.
 
 User manual
 ------  
 ### Interface
-Bootom navigation bars display three destinations at the bottom of a sceen: Fake as Tesla, Scan and Fake as app.  
+Bootom navigation bar displays three destinations: Fake as Tesla, Scan and Fake as app.  
 **Fake as Tesla:**
 - Broadcast: Broadcast with specific BLE name and additional data.
-- BLE Server: It provides a service with three characteristics.  It will record and response automatically.
+- BLE Server: Provide a service with three characteristics. Records and response automatically.
 
 	| Service | UUID | Property| Description|
 	| ------- | ------- |---------|----|
@@ -39,11 +72,11 @@ Bootom navigation bars display three destinations at the bottom of a sceen: Fake
 
 **Scan:**
 - Scan surroundings: Search BLE devices in range and show their BLE names and addresses in list.  
-- Change MAC address: Change local MAC address to specific one. This function may not work if you use an offical Android device which version higher than Android 5.
+- Change MAC address: Change local MAC address to specific one. (This function may not work if you use an offical Android device which version higher than Android 5.)
 **Fake as app:**
 - Connect: Connect to device with specific MAC address
 - Change MTU Size: Change MTU size to 256 bytes
-- BLE Client: Send write request to server. Parse indication from server. It will record and response automatically.  
+- BLE Client: Send write request to server. Parse indication from server. Record and response automatically.  
 
 ![](https://github.com/fmsh-seclab/TesMla/blob/master/images/s1.JPG)  
 
@@ -60,4 +93,3 @@ About us
 ------
 Security Lab  
 Shanghai Fudan Microelectronics Group Company Limited 
-
