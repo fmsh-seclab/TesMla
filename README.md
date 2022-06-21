@@ -1,16 +1,20 @@
 ![](https://github.com/fmsh-seclab/TesMla/blob/master/images/banner.png)
 TesMla
 ========
+The app takes advantage of a collection of security issues discovered in the Model 3's keyless entry system that together add up to a method to fully unlock, start, and steal a vehicle.  
+**NOTE:** All sources here is for **research use only**. 
 
 Introduction
 -------
-This app implements a **man-in-the-middle-attack** to Tesla Model 3 and its phone keys.
+Turning your phone into a key fob has become a trend. The phone as key can be authenticated by the vehicle automatically provided that it is within Bluetooth Low Energy (BLE) range. Tesla provides this feature for better driver experience. To use the phone hands-free, you must pair it first. As you approach then, your phone’s Bluetooth signal is detected and doors unlock when you press a door handle.  
+
+Security researchers， at Shanghai Fudan Microelectronics Group Company Ltd.，revealed a collection of security vulnerabilities they found in Tesla Model 3 cars and their phone keys. They discovered that those combined vulnerabilities could be exploited by any car thief who has installed this TesMla app on their phone. Within one minute, a hacker can fully unlock, start and steal a Model 3. Taking android phone as an attack device, the whole attack process is out of owner’s awareness and simple to be conducted. All these vulnerabilities and attack details have been warned Tesla and the company didn’t respond. However, This attack brings into question the use of Bluetooth communication in security-critical applications since the attack is low-cost and concealed. 
+
+This app open source here implements a **man-in-the-middle-attack** to Tesla Model 3 and its phone keys. Attacker can utilize this app to break Model 3 within one minute.  
 
 Background
 ----------
-Tesla enables car owners to use their smart phones to automatic unlock and start their cars. Once paired, the vehicle automatically authenticates the Phone key when the key is approaching. TesMla exploits vulnerabilities of authentication process. It works as an intermediate, storing and forwarding messages between the key and the vehicle. Finally TesMla tricks the Model 3 to believe that there is a legitimate key in range.   
-The following parts review the authentication protocols by reverse engineering and sniffing. The vulnerabilities and proof of concept are shown as follows either.
-
+Tesla enables car owners to use their smart phones to automatic unlock and active their cars. Once paired, the vehicle automatically authenticates the Phone key when the key is approaching. TesMla exploits vulnerabilities of authentication process and complete a man-in-the-middle attack to break Model 3. It works as an intermediate, storing and forwarding messages between the key and the vehicle. The following parts review the authentication protocols by reverse engineering and sniffing. The vulnerabilities and proof of concept are shown as follow either.
 ### Test environments
 The table below shows the model of devices used in sniffing and attack. 
 |Devices|Model|Version|
