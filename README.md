@@ -104,3 +104,11 @@ Bootom navigation bar displays three destinations: Fake as Tesla, Scan and Fake 
 - 4. Touch `Fake as App` item. Click `connect` button and `Change size of MTU`. Click  `Send data` button. 
 - 5. Touch `Fake as Tesla` item. Click `fake broadcast` button. 
 - 6. Touch `Fake as App` item. Click `connect` button and `Change size of MTU`. Click  `Send data` button. The Tesla Model 3 unlocks the door and can be driven.
+
+
+About us  
+------
+Software and Systems Security Team  
+Security Lab  
+Shanghai Fudan Microelectronics Group Company Limited  
+xiexinyi@fmsh.com.cn, jiangkun@fmsh.com.cn, dairui@fmsh.com.cn
