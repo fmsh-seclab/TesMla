@@ -29,19 +29,19 @@ If a phone key has been paired, it has the public key and BLE MAC address of Mod
 
 ![](https://github.com/fmsh-seclab/TesMla/blob/master/images/a.jpg)
 
-When a phone key is approaching, it sends a request for connection to a specific MAC address. If the vehicle is in the BLE range, the reconnection establishes. Model 3 sends authentication indications to the phone. This indication initiates the authentication process (Step 1). The Phone may optionally send information requests to get the public key or status of the vehicle. The vehicle sends corresponding data back. (Step 4 - 5).  
+When a phone key is approaching, it sends a request for connection to a specific MAC address. If the vehicle is in the BLE range, the reconnection establishes. Model 3 sends authentication indications to the phone. This indication initiates the authentication process (Step 1). The Phone may optionally send information requests to get the public key or status of the vehicle. The vehicle sends corresponding data back. (Steps 4 - 5).  
 The phone generates shared secret `S` using local private key `p` and public key of vehicle `V` by `ECDH`. Then it encrypts data `a` with `S` as key and the counter `count` as IV in AES-GCM mode. Data `a` in two bytes is the serialized result of an unsigned message through Protobuf. The operation to get data `a` is shown as follows.
  ```java
  UnsignedMessage{AuthenticationResponse:AuthenticationResponse {authenticationLevel: AUTHENTICATION_LEVEL_NONE }}
  ```  
   
-The phone delivers encryption results to Model 3. The result as the first attestation consists of ciphertext(2bytes), tag(16bytes), and counter to Model 3. (Step 6 - 8). Model 3 derives secret S according to local private key `v` and public key of phone key using `ECDH`. Once receiving the first attestation, Model 3 replies to the counter first. Then it verifies data based on `S` and responds token `G` (20bytes) when verification successes. (Step 9 - 12).   
+The phone delivers encryption results to Model 3. The result as the first attestation consists of ciphertext(2bytes), tag(16bytes), and counter to Model 3. (Steps 6 - 8). Model 3 derives secret S according to local private key `v` and public key of phone key using `ECDH`. Once receiving the first attestation, Model 3 replies to the counter first. Then it verifies data based on `S` and responds token `G` (20bytes) when verification successes. (Steps 9 - 12).   
 Phone key increments counter by one. Once receiving the token, the phone key encrypts data `b` with `S` as key, new counter as IV, and token `G` as additional authentication data in AES-GCM mode. Data `b` is the serialized result (4bytes) defined as below.  
 ```java
 UnsignedMessage{AuthenticationResponse: AuthenticationResponse {authenticationLevel: AUTHENTICATION_LEVEL_DRIVE }}
 ```  
   
-Afterward phone key sends results as a second attestation to a vehicle (Step 13 - 14). Model 3 verifies the second attestation. If it passes, Model 3 unlocks the door and the authentication process finishes.
+Afterward phone key sends results as a second attestation to a vehicle (Steps 13 - 14). Model 3 verifies the second attestation. If it passes, Model 3 unlocks the door and the authentication process finishes.
 
 
 ### Vulnerabilities
@@ -62,10 +62,10 @@ To prove the feasibility of the attack, we consider using just one attack device
 ![](https://github.com/fmsh-seclab/TesMla/blob/master/images/m.jpg)  
 
 First of all, the attacker needs to scan the broadcast packages from the vehicle to be attacked. Parsing the captured broadcast, an attacker can specify the BLE address of attack devices the same as the vehicle. An attacker can optionally connect to the vehicle for some information. (Steps 1 - 4).  
-The attacker periodically sends a broadcast that is the same as the one captured before. If the attacker is close to the owner, the reconnection between the phone key and the attack device establishes automatically since the attack device has a specific BLE MAC address. This connection let an attacker get the first attestation package. (Step 6 - 13).  
-Back to the vehicle, the attacker sends a connection request and reconnects to Model 3. And the attack device sends the first attestation captured before getting the response of the token. (Step 15 - 22).  
-Similarly reconnecting to the phone key, the attacker responds token once receiving the new attestation. This time attacker can get pair of attestations and record them locally.  (Step 26 - 35).  
-Finally, the attack device sends these two new attestations to the vehicle. If the token response is the same as before, the authentication passes and the vehicle unlocks and can be started. (Step 40 - 44).
+The attacker periodically sends a broadcast that is the same as the one captured before. If the attacker is close to the owner, the reconnection between the phone key and the attack device establishes automatically since the attack device has a specific BLE MAC address. This connection let an attacker get the first attestation package. (Steps 6 - 13).  
+Back to the vehicle, the attacker sends a connection request and reconnects to Model 3. And the attack device sends the first attestation captured before getting the response of the token. (Steps 15 - 22).  
+Similarly reconnecting to the phone key, the attacker responds token once receiving the new attestation. This time attacker can get pair of attestations and record them locally.  (Steps 26 - 35).  
+Finally, the attack device sends these two new attestations to the vehicle. If the token response is the same as before, the authentication passes and the vehicle unlocks and can be started. (Steps 40 - 44).
 
 
 
