@@ -114,7 +114,5 @@ The bottom navigation bar displays three destinations: Fake as Tesla, Scan, and 
 
 About us  
 ------
-Software and Systems Security Team  
-Security Lab  
-Shanghai Fudan Microelectronics Group Company Limited  
+Software and Systems Security Team   
 xiexinyi@fmsh.com.cn, jiangkun@fmsh.com.cn, dairui@fmsh.com.cn
