@@ -2,6 +2,12 @@
 TesMla
 ========
 The app takes advantage of a collection of security issues discovered in the Model 3's keyless entry system that together add up to a method to fully unlock, start, and steal a vehicle.  
+
+**Related Publication**  
+> [![DOI](https://www.ndss-symposium.org/wp-content/uploads/2023/02/ndss2023_f82_paper.pdf)](DOI:10.14722/ndss.2023.24082)  
+> X. Xie, K. Jiang, R. Dai,. "Access Your Tesla without Your Awareness: Compromising Keyless Entry System of Model 3",  
+> In *Network and Distributed System Security Symposium*, 2023.
+
 **NOTE:** All sources here are for **research use only**. 
 
 Introduction
